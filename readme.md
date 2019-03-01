@@ -1,6 +1,6 @@
 # CRUD tramite API
 
-*e' analoga alla crud ma invece che rotte web ci sono rotte api*
+*e' analoga alla crud web ma invece che rotte web ci sono rotte api*
 
 ---------
 
@@ -21,7 +21,11 @@ quando si tratta di update o di store, devo sempre usare la classe **Request**.
 
 ------
 
-i json sono accessibili alla parte frontend grazie a **chiamate ajax**.
+utilizzo **postman** per testare le mie chiamate senza dover fare delle chiamate ajax. E' molto piu veloce. Se voglio creare o modificare dati, mi basta andare in body->form-data.
+
+-------
+
+i json sono accessibili alla parte frontend grazie a **chiamate ajax**. Anaogamente i form per l inserimento di dati si fanno con chiamate ajax dal frontend.
 
 -------
 
@@ -44,7 +48,7 @@ per agire sul middleware devo:
 
 - nell `api.php` avro `Route::middleware('api.auth')`;
 
-[da **postman** vado nell header a create una nuova key che chiamo per es Authorization e inserisco la mia password per visualizzare i dati chiamati al db.
+[da **postman** vado nell *header* a create una nuova key che chiamo per es Authorization e inserisco la mia password per visualizzare i dati chiamati al db.
 Poi tramite il file middleware (che in questo caso si chiama ApiAuth.php) gestisco errori. ]
 
 Posso inserire la psw del mio middleware mettendola nel .env: `API_AUTH=asd` e la richiamo nel middleware con  `$apiKey = env(API_AUTH)`.

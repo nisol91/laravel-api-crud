@@ -30,6 +30,12 @@ Route::middleware('api.auth')->namespace('Api')->group(function() {
     Route::get('/products/{id}', 'ProductController@show');
     Route::post('/products/{id}', 'ProductController@update');
     Route::post('/products/{id}/delete', 'ProductController@destroy');
+
+    Route::get('/categories', 'CategoryController@index');
+    Route::post('/categories', 'CategoryController@create');
+    Route::get('/categories/{id}', 'CategoryController@show');
+    Route::post('/categories/{id}', 'CategoryController@update');
+    Route::post('/categories/{id}/delete', 'CategoryController@destroy');
 });
 
 

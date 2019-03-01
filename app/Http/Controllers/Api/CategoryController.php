@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Product;
+use App\Category;
 
-class ProductController extends Controller
+class CategoryController extends Controller
 {
     public function index() {
 
-        $products = Product::all();
-        return response()->json($products);
+        $category = Category::all();
+        return response()->json($category);
 
     }
 
@@ -20,54 +20,52 @@ class ProductController extends Controller
 
         $validatedData = $request->validate([
             'name'=>'required',
-            'description'=>'required',
-            'serial_number'=>'required',
         ]);
 
-        $newProduct = new Product;
-        $newProduct->fill($validatedData);
-        $newProduct->save();
-        // dd($newProduct);
+        $newCategory = new Category;
+        $newCategory->fill($validatedData);
+        $newCategory->save();
+        // dd($newCategory);
 
-        return response()->json($newProduct);
+        return response()->json($newCategory);
     }
 
     public function show($id) {
-        $product = Product::find($id);
+        $category = Category::find($id);
         //in alternativa
-        // $product = Product::where('id', $id)->first();
+        // $Category = Category::where('id', $id)->first();
 
-        if (empty($product)) {
+        if (empty($category)) {
             return response()->json([
                 'error'=>'Mi hai passato un errore'
             ]);
         }
-        return response()->json($product);
+        return response()->json($category);
     }
 
     public function update(Request $request, $id) {
 
         $data = $request->all();
-        $product = Product::find($id);
+        $category = Category::find($id);
 
-        if (empty($product)) {
+        if (empty($category)) {
             return response()->json([
                 'error'=>'Mi hai passato un errore'
             ]);
         }
-        $product ->update($data);
-        return response()->json($product);
+        $category ->update($data);
+        return response()->json($category);
     }
     public function destroy($id) {
 
-        $product = Product::find($id);
+        $category = Category::find($id);
 
-        if (empty($product)) {
+        if (empty($category)) {
             return response()->json([
                 'error'=>'Mi hai passato un errore'
             ]);
         }
-        $product ->delete();
+        $category ->delete();
         return response()->json([]);
     }
 }
