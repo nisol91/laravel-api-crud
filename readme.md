@@ -31,7 +31,7 @@ i json sono accessibili alla parte frontend grazie a **chiamate ajax**. Anaogame
 
 #Middleware
 
-il **middleware** fa delle verifiche, per la sicurezza.
+il **middleware** fa delle verifiche, per la sicurezza. E' un software che fa da filtro fra l utente e il db e la mia app. decide lui chi passa e chi no.
 
 se non ho creato le auth, posso creare il singolo middleware con
 
